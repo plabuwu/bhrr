@@ -1,0 +1,6 @@
+{
+  "name": "bhrr",
+  "main": "backend/index.js",
+  "compatibility_date": "<TBD>",
+  // "assets": { "directory": "./dist" } // uncomment this before deployment
+}
