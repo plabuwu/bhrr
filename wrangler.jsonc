@@ -1,5 +1,5 @@
 {
-  "name": "bhrr",
+  "name": "editingstyle",
   "main": "backend/index.js",
   "assets": {
     "directory": "./dist"
