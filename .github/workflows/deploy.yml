@@ -1,0 +1,25 @@
+name: Deploy
+on:
+  push:
+    branches:
+      - main
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Bun
+        uses: oven-sh/setup-bun@v1
+
+      - name: Install Dependencies
+        run: bun install
+
+      - name: Build Frontend Static Assets
+        run: bun rsbuild build
+
+      - name: Deploy to Cloudflare Workers
+        run: bun wrangler deploy
+        env:
+          CLOUDFLARE_API_TOKEN: "d2TR3C0pJCkEwciY2Ql8cxoNXop_DSgEsaHv4qaW"
