@@ -20,6 +20,6 @@ jobs:
         run: bun rsbuild build
 
       - name: Deploy to Cloudflare Workers
-        run: bun wrangler deploy
+        run: bun wrangler deploy --compatibility-date 2025-08-09
         env:
           CLOUDFLARE_API_TOKEN: "d2TR3C0pJCkEwciY2Ql8cxoNXop_DSgEsaHv4qaW"
