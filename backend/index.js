@@ -2,14 +2,12 @@ import { Hono } from 'hono'
 
 const app = new Hono()
 
-// Helper function to extract YouTube video ID
 const extractYouTubeVideoId = (url) => {
   const regex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
   const match = url.match(regex);
   return match ? match[1] : null;
 };
 
-// Get all videos
 app.get('/api/videos', async (c) => {
   try {
     const { db } = c.env;
@@ -20,7 +18,6 @@ app.get('/api/videos', async (c) => {
   }
 });
 
-// Add a new video
 app.post('/api/videos', async (c) => {
   try {
     const { db } = c.env;
@@ -33,12 +30,10 @@ app.post('/api/videos', async (c) => {
 
     let result;
     if (extractYouTubeVideoId(video_url)) {
-      // YouTube video
       result = await db.prepare(
         'INSERT INTO editing_style (youtube) VALUES (?) RETURNING *'
       ).bind(video_url).run();
     } else {
-      // Twitter/X video
       result = await db.prepare(
         'INSERT INTO editing_style (x, src) VALUES (?, ?) RETURNING *'
       ).bind(tweet_url, video_url).run();
@@ -54,7 +49,6 @@ app.post('/api/videos', async (c) => {
   }
 });
 
-// Delete a video
 app.delete('/api/videos', async (c) => {
   try {
     const { db } = c.env;
