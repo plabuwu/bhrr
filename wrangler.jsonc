@@ -1,6 +1,12 @@
 {
   "name": "bhrr",
   "main": "backend/index.js",
-  "compatibility_date": "<TBD>",
-  // "assets": { "directory": "./dist" } // uncomment this before deployment
+  // "assets": { "directory": "./dist" } // uncomment this before deployment,
+  "d1_databases": [
+    {
+      "binding": "db",
+      "database_name": "editingstyle",
+      "database_id": "2f075d4a-8d0d-4b07-8e5f-e67b1155d3fa"
+    }
+  ]
 }
