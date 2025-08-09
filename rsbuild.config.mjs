@@ -4,16 +4,16 @@ import { pluginReact } from "@rsbuild/plugin-react";
 export default defineConfig({
   plugins: [pluginReact()],
   html: {
-    title: "bhrr",
+    title: "Editing Style Inspiration",
   },
   source: {
     entry: {
-      index: "./frontend/main.jsx",
+      index: "./app/main.jsx",
     },
   },
   server: {
     proxy: {
-      "/api": "http://localhost:3000",
+      "/api": "http://localhost:8787",
     },
   },
   module: {
