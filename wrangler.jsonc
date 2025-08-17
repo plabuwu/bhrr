@@ -1,0 +1,5 @@
+{
+  "name": "bhrr",
+  "main": "backend/index.js"
+  // "assets": { "directory": "./dist" } // uncomment this before deployment,
+}
